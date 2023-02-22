@@ -8,9 +8,9 @@ import HomepageProductSlickSlider from "./HomepageProductSlickSlider.client";
 
 
 import { HomeProductCard } from "./HomeProductCard.client";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger);
 
 import MainHero from "./MainHero.client";
 
@@ -21,76 +21,54 @@ import curatare from "./assets/curatare.png";
 import masti from "./assets/masti.png";
 
 
-import { useState } from "react"
-
 export default function NewIntroMobile({ bestSeller, nodes }) {
 
-    // const bestSellerOne = []
-    // const bestSellerTwo = []
-
-    // window.onbeforeunload = function () {
-    //     window.scrollTo(0, 0);
-    // }
 
     // useEffect(() => {
-    //     if(bestSeller) {
-    //         bestSeller.map((produs, index) => {
-    //             if(index === 0 || index === 1) {
-    //                 bestSellerOne.push(produs)
-    //             } else if(index === 2 || index === 3) {
-    //                 bestSellerTwo.push(produs)
-    //             }
-    //         })
-    //     }
-    // },[bestSeller])
 
-    // console.log(bestSellerOne, "bestSellerOne")
-    // console.log(bestSellerTwo, "bestSellerTwo")
-    useEffect(() => {
+    //     const LOADTL = gsap.timeline();
 
-        const LOADTL = gsap.timeline();
-
-        LOADTL.to("#mlogo", { autoAlpha: 1, y: -50, duration: 1, ease: "power4" })
-            .to(
-                ".mzanshintext",
-                {
-                    autoAlpha: 1,
-                    y: 50,
-                    duration: 1,
-                    ease: "power1",
-                    stagger: { each: 0.1 },
-                },
-                "<"
-            )
-            .to("#mlogo", { autoAlpha: 0, y: -100, duration: 0.3, ease: "power1.in" })
-            .to(
-                ".mzanshintext",
-                {
-                    y: 100,
-                    autoAlpha: 0,
-                    duration: 0.3,
-                    ease: "power1.in",
-                    stagger: { each: 0.1 },
-                },
-                "<"
-            )
-            .to(".imgReveal", { duration: 0.5, autoAlpha: 1 })
-            .to(".mainhero", { autoAlpha: 1, ease: "power1", duration: 0.1 })
-            .to(".imgReveal", { duration: 0.8, width: "0%", ease: "power4.inOut" })
-            .to(
-                ".zanshintextmain",
-                {
-                    autoAlpha: 1,
-                    duration: 0.4,
-                    ease: "power1",
-                    stagger: 0.08,
-                },
-                "-=1"
-            )
-            .to(".swimlane", { duration: 1, autoAlpha: 1, ease: "power4.in" }, "<")
+    //     LOADTL.to("#mlogo", { autoAlpha: 1, y: -50, duration: 1, ease: "power4" })
+    //         .to(
+    //             ".mzanshintext",
+    //             {
+    //                 autoAlpha: 1,
+    //                 y: 50,
+    //                 duration: 1,
+    //                 ease: "power1",
+    //                 stagger: { each: 0.1 },
+    //             },
+    //             "<"
+    //         )
+    //         .to("#mlogo", { autoAlpha: 0, y: -100, duration: 0.3, ease: "power1.in" })
+    //         .to(
+    //             ".mzanshintext",
+    //             {
+    //                 y: 100,
+    //                 autoAlpha: 0,
+    //                 duration: 0.3,
+    //                 ease: "power1.in",
+    //                 stagger: { each: 0.1 },
+    //             },
+    //             "<"
+    //         )
+    //         .to(".imgReveal", { duration: 0.5, autoAlpha: 1 })
+    //         .to(".mainhero", { autoAlpha: 1, ease: "power1", duration: 0.1 })
+    //         .to(".imgReveal", { duration: 0.8, width: "0%", ease: "power4.inOut" })
+    //         .to(
+    //             ".zanshintextmain",
+    //             {
+    //                 autoAlpha: 1,
+    //                 duration: 0.4,
+    //                 ease: "power1",
+    //                 stagger: 0.08,
+    //             },
+    //             "-=1"
+    //         )
+    //         .to(".swimlane", { duration: 1, autoAlpha: 1, ease: "power4.in" }, "<")
 
 
-    }, []);
+    // }, []);
 
     return (
         <div className=" w-full h-max bg-[#F0F5F9] flex flex-col justify-between">
@@ -101,7 +79,7 @@ export default function NewIntroMobile({ bestSeller, nodes }) {
 
 
                 <div className="mainhero invisible w-[95%] h-[35vh] flex flex-col items-center justify-start z-30 mt-[50px]">
-                    <MainHero phone={true} />
+                    {/* <MainHero phone={true} /> */}
                     <div className="flex flex-col z-20 w-max h-max items-center ">
 
                         <div className="flex items-center justify-center text-[30px] font-['Kenjo'] mt-[50px] tracking-[0.25em]  text-[#1E2022] phoneone:text-[20px] galaxyfold:text-[15px]" >
@@ -127,7 +105,7 @@ export default function NewIntroMobile({ bestSeller, nodes }) {
                     <div className="h-full w-full grid grid-cols-2 justify-center items-center gap-4">
                         {bestSeller && bestSeller.map((produs, index) => (
                             <div key={index} className="w-full h-full flex items-center justify-center">
-                                <HomeProductCard product={produs} key={produs.id} />
+                                {/* <HomeProductCard product={produs} key={produs.id} /> */}
                             </div>
                         ))}
                     </div>
@@ -241,71 +219,72 @@ export default function NewIntroMobile({ bestSeller, nodes }) {
 
 
             </div>
-            <div ref={(element) => {
-                const TL = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: element,
-                        scrub: 0.5,
-                        //pin: true,
-                        start: "top-=300 top",
-                        //start: "top top",
-                        end: "bottom-=800 top"
-                        //end:"bottom-=600 top"
-                    }
-                })
-                TL.to(".mcolectii", {
-                    rotate: 90,
-                    duration: 1,
-                })
-                    .to(".mcremeb", {
-                        autoAlpha: 1,
-                        duration: 0.4,
-                        ease: "power3.in"
+            <div 
+            // ref={(element) => {
+            //     const TL = gsap.timeline({
+            //         scrollTrigger: {
+            //             trigger: element,
+            //             scrub: 0.5,
+            //             //pin: true,
+            //             start: "top-=300 top",
+            //             //start: "top top",
+            //             end: "bottom-=800 top"
+            //             //end:"bottom-=600 top"
+            //         }
+            //     })
+            //     TL.to(".mcolectii", {
+            //         rotate: 90,
+            //         duration: 1,
+            //     })
+            //         .to(".mcremeb", {
+            //             autoAlpha: 1,
+            //             duration: 0.4,
+            //             ease: "power3.in"
 
-                    }, "<")
-                    .to(".mcleansereb", {
-                        autoAlpha: 1,
-                        duration: 0.4,
-                        ease: "power3.in"
+            //         }, "<")
+            //         .to(".mcleansereb", {
+            //             autoAlpha: 1,
+            //             duration: 0.4,
+            //             ease: "power3.in"
 
-                    }, "<")
-                    .to(".mmastib", {
-                        autoAlpha: 1,
-                        duration: 0.4,
-                        ease: "power3.in"
+            //         }, "<")
+            //         .to(".mmastib", {
+            //             autoAlpha: 1,
+            //             duration: 0.4,
+            //             ease: "power3.in"
 
-                    }, "<")
-                    .to(".mcremeb", {
+            //         }, "<")
+            //         .to(".mcremeb", {
 
-                        duration: 1,
-                        x: 120,
-                        ease: "power3"
-                    }, "<")
-                    .to(".mcleansereb", {
+            //             duration: 1,
+            //             x: 120,
+            //             ease: "power3"
+            //         }, "<")
+            //         .to(".mcleansereb", {
 
-                        duration: 1,
-                        x: -90,
-                        ease: "power3"
-                    }, "<")
-                    .to(".mmastib", {
+            //             duration: 1,
+            //             x: -90,
+            //             ease: "power3"
+            //         }, "<")
+            //         .to(".mmastib", {
 
-                        duration: 1,
-                        x: 120,
-                        ease: "power3"
-                    }, "<")
-                    .to(".mcreme", {
-                        duration: 1,
-                        x: -30,
-                    }, "<")
-                    .to(".mcleansere", {
-                        duration: 1,
-                        x: 70,
-                    }, "<")
-                    .to(".mmasti", {
-                        duration: 1,
-                        x: -30,
-                    }, "<")
-            }}
+            //             duration: 1,
+            //             x: 120,
+            //             ease: "power3"
+            //         }, "<")
+            //         .to(".mcreme", {
+            //             duration: 1,
+            //             x: -30,
+            //         }, "<")
+            //         .to(".mcleansere", {
+            //             duration: 1,
+            //             x: 70,
+            //         }, "<")
+            //         .to(".mmasti", {
+            //             duration: 1,
+            //             x: -30,
+            //         }, "<")
+            // }}
                 className=" w-full h-[85vh] flex flex-col items-center  justify-center relative mt-[40px]">
                 <div className=" w-full h-1/2 flex items-end justify-center relative mb-[30px]">
                     <div className=" p-10 mr-5 w-max h-[200px] mt-[-100px] absolute top-[50%] left-0   text-[#52616B] font-serif text-[20px] cursor-pointer flex flex-col items-center justify-center galaxyfold:text-[10px] galaxyfold:mr-[0px] ">
@@ -373,7 +352,7 @@ export default function NewIntroMobile({ bestSeller, nodes }) {
                         if (node.handle === "homepage") {
                             return (
                                 <div key={index} className="  h-[30vh] w-full  ">
-                                    <HomepageProductSlickSlider node={node} direction={true} mobile={true} />
+                                    {/* <HomepageProductSlickSlider node={node} direction={true} mobile={true} /> */}
                                 </div>
                             )
                         }

@@ -1,0 +1,15 @@
+# wrangler.toml
+
+account_id = "20fbaf70b0f68eb59da6d21d88c52b92"
+compatibility_date = "2022-01-28"
+compatibility_flags = ["streams_enable_constructors"]
+main = "dist/worker/index.js"
+name = "zanshinbeautyf"
+route = ""
+workers_dev = true
+
+[site]
+bucket = "dist/client"
+
+[build]
+command = "yarn && yarn build"
